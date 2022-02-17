@@ -13,11 +13,11 @@ class Client
     public $company_id;
     public $file = 'token.ini';
 
-    public function __construct($config)
+    public function __construct($config, $file = 'token.ini')
     {
         $this->config = $config;
         $this->company_id = $this->config['company_id'];
-        $this->file = function_exists('storage_path') ? storage_path('token.ini') : realpath(__DIR__ . '/token.ini');
+        $this->file = $file == 'token.ini' ? realpath(__DIR__ . '/token.ini') : $file;
         $this->checkTokens();
     }
 
