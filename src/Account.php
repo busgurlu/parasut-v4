@@ -38,4 +38,22 @@ class Account extends Base
             'PUT'
         );
     }
+
+    public function contact_debit_transactions($id , $data = [])
+    {
+        return $this->client->request(
+            'contacts/' . $id . '/contact_debit_transactions',
+            $data,
+            'POST'
+        );
+    }
+
+    public function contact_credit_transactions($id , $data = [])
+    {
+        return $this->client->request(
+            'contacts/' . $id . '/contact_credit_transactions',
+            $data,
+            'POST'
+        );
+    }
 }
